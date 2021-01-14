@@ -1,16 +1,12 @@
 package com.oliver.springmongodb.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-@Getter
-@Setter
+@Data
 @Document(collection = "user")
 @NoArgsConstructor
 @AllArgsConstructor
