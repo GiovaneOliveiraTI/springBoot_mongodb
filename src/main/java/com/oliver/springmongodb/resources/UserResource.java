@@ -1,6 +1,7 @@
 package com.oliver.springmongodb.resources;
 
 import com.oliver.springmongodb.DTOs.UserDTO;
+import com.oliver.springmongodb.domain.Post;
 import com.oliver.springmongodb.domain.User;
 import com.oliver.springmongodb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +53,12 @@ public class UserResource {
         userDTO = service.update(userDTO);
         userDTO.setId(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @RequestMapping(value = "/{id}/post", method = RequestMethod.GET)
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User user = service.findById(id);
+        return ResponseEntity.ok().body(user.getPosts());
     }
 
 
